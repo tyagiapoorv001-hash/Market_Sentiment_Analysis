@@ -1,71 +1,72 @@
-# Bitcoin Market Sentiment & Trader Behavior Analysis
+﻿# Bitcoin Market Sentiment and Trader Behavior Analysis
+
+This project analyzes how Bitcoin market sentiment, such as Fear and Greed, relates to trader behavior and performance on Hyperliquid.
 
 ## Project Overview
-This project analyzes how Bitcoin market sentiment (Fear/Greed) impacts trader behavior and performance on Hyperliquid. Using historical trader data and daily sentiment indices, we explore trade size, win rate, trade frequency, and long/short bias. The goal is to uncover actionable insights to inform smarter trading strategies.
 
-## Datasets
-1. **Bitcoin Market Sentiment (Fear/Greed)**  
-   - Columns: Date, Classification (Fear / Greed / Extreme Fear / Extreme Greed / Neutral), Value, Sentiment Score  
-2. **Historical Trader Data (Hyperliquid)**  
-   - Columns: Account, Symbol, Execution Price, Size USD, Side (BUY/SELL), Closed PnL, Timestamp, etc.
+The analysis studies how sentiment conditions affect:
 
-## Setup Instructions
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/your-username/bitcoin-market-sentiment.git
-jupyter notebook notebook.ipynb.
+- Daily profit and loss
+- Win rate
+- Trade size
+- Trade frequency
+- Long and short trading bias
 
+The goal is to identify patterns that can support better risk management and trading decisions.
 
-Methodology
+## Project Structure
 
-Load and clean both datasets; convert timestamps to dates.
+```text
+Market_Sentiment_Analysis/
+|-- market_sentiment_analysis.ipynb
+|-- fear_greed_index.csv
+|-- requirements.txt
+`-- README.md
+```
 
-Merge sentiment and trader data on a daily level.
+## Dataset
 
-Create key metrics:
+The project uses Bitcoin Fear and Greed sentiment data and trader behavior/performance data.
 
-Daily PnL per trader
+Important fields include:
 
-Win rate and average trade size
+- Date
+- Sentiment classification
+- Sentiment score
+- Trade side
+- Trade size
+- Closed PnL
+- Trade timestamp
 
-Number of trades per day
+## Methodology
 
-Long/short trade ratio
+1. Load and clean market sentiment and trader data.
+2. Convert timestamps into daily dates.
+3. Merge sentiment and trader activity by date.
+4. Calculate daily trading metrics.
+5. Compare trader performance across sentiment categories.
+6. Derive insights and risk-control recommendations.
 
-Analyze metrics vs sentiment to identify patterns.
+## Key Insights
 
-Segment traders: frequent vs infrequent, consistent vs inconsistent.
+- Traders tend to take larger trades during high-greed conditions.
+- Win rate can fall during overconfident market phases.
+- Long trades are more common during greed phases, while fear phases can increase short bias.
+- Consistent traders show more stable performance across sentiment conditions.
 
-Derive actionable strategies and optional predictive modeling/clustering.
+## How to Run
 
+```bash
+pip install -r requirements.txt
+jupyter notebook "market_sentiment_analysis.ipynb"
+```
 
+## Tech Stack
 
-Key Insights
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
 
-Traders take larger trades during Extreme Greed, but win rates drop → risk of overconfidence.
-
-Long trades dominate in Greed, short trades in Fear → adjust positions accordingly.
-
-Consistent winners maintain stable PnL regardless of market sentiment; inconsistent traders face higher volatility.
-
-Strategy Recommendations
-
-Reduce trade size during Extreme Greed to mitigate risk.
-
-Focus on selective long trades during Fear days for safer returns.
-
-Adjust trading behavior based on trader segment: frequent/infrequent, consistent/inconsistent.
-
-
-
-Output
-
-All charts and tables are saved in the output/ folder, including:
-
-PnL by sentiment
-
-Win rate by sentiment
-
-Trade size and frequency metrics
-
-Long/short ratio charts
